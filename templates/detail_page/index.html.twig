@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mainContainer animate__animated animate__fadeIn">
+        {{ include('components/header.html.twig') }}
+
+    <section class="container">
+         <div class="container newInfo--wrapper animate__animated animate__fadeIn animate__delay-1s">
+            <div class="avtor--wrapper "><img src="../img/avatar.svg" alt="">{{new.user.login}}</div>
+            <div class="date">{{new.dateLoad|date}} <div class="views">{{new.viewsNum}}<img src="../img/view.svg" alt=""></div></div>
+
+        </div>
+        <div class="container col-md-9 animate__animated animate__fadeInUp animate__fast">
+            <div class="fotoNew"><img src="../newsfoto_directory/{{new.fotopath}}" alt="" class="col-md-8"></div>
+            <div class="name">{{new.name}}</div>
+            <div class="annotation">{{new.content|nl2br}}</div>
+
+            <div class="linePost col-md-12"></div>
+        </div>
+
+    </section>
+
+    <section class="container">
+        <div class="container comments--wrapper col-md-9 ">
+
+        {% if comments|length>0 %}
+            <h1 class="comments">Комментарии</h1>
+            <div class="comments--content--wrapper">
+                {% for comment in comments %}
+                        <div class="comment--item">
+                            <div class="avtor--wrapper "><img src="../img/avatar.svg" alt="">{{comment.user.login}}</div>
+                            {{comment.content}}
+                             <div class="date">{{comment.dateLoad|date}}</div>
+                        </div>
+                {% endfor %}
+            </div>
+
+        {% endif %}
+        {% if app.user %}
+            {{ include('Forms/AddCommentForm/index.html.twig') }}
+        {% endif %}
+        </div>
+    </section>
+    </div>
+{% endblock %}
+

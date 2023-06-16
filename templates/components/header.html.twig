@@ -1,0 +1,26 @@
+<div class="navbar animate__animated animate__fadeInDown animate__fast">
+    <a href="/"><div class="logo"> NN{{ include('components/sfera.html') }}</div></a>
+    {% if app.user %}
+        Привет, {{ app.user.login }}
+
+        <div class="btns">
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="/admin" target="_blank" class="btn btn-md btn-outline-info">Админка</a>
+        {% endif %}
+            <a href="/addNew" class="add__new"><input type="button" name="add__new" class="btn btn-md btn-outline-secondary" value="Добавление новости"></a>
+
+            <a href="/logout"><input type="button" name="zareg" class="btn btn-md btn-outline-danger" value="Выйти"></a>
+
+        </div>
+    {% else %}
+    <div class="buttons">
+        <a href="/register"><input type="button" name="zareg" class="reg" value="Зарегистрироваться"></a>
+        <a href="/login" class="vhod--link"><input type="button" name="vhod" class="vhod" value="Войти"></a>
+    </div>
+
+    {% endif %}
+</div>
+
+<div class="h animate__animated animate__fadeInUp">Nastya News - последние новости на портале</div>
+<div class="lineH col-md-11 animate__animated animate__fadeIn animate__delay-1s"></div>

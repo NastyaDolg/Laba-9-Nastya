@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="registrationForm" id="register">
+        <div class="registrationForm--content">
+            <a href="/"><div class="close--registrationForm">{% include 'svg/arrow.svg' %}</div></a>
+            <div class="registrationForm--header">
+                <h1>Регистрация</h1>
+            </div>
+            <div class="underline"></div>
+            {{ form_start(registrationForm, { 'attr': {'class': 'form--register'} }) }}
+                {{ form_widget(registrationForm.email, { 'attr': {'placeholder': 'email'}, 'label': ' ' }) }}
+                {{ form_widget(registrationForm.login, { 'attr': {'placeholder': 'Логин'}, 'label': ' ' }) }}
+                {{ form_widget(registrationForm.plainPassword, { 'attr': {'placeholder': 'Пароль'}, 'label': ' ' }) }}
+                {{ form_row(registrationForm.agreeTerms, { 'attr': {'class': 'checkbox'}, 'label': 'Согласен на обработку персональных данных' }) }}
+                {% if not registrationForm.vars.valid %}
+                    <ul>
+                    {% for error in registrationForm.vars.errors.form.getErrors(true) %}
+                        <li class="error">{{ error.message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                <button type="submit" class="btn btn-primary zareg">Зарегистрироваться</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}

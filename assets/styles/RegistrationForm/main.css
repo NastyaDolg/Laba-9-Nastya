@@ -1,0 +1,103 @@
+.registrationForm{
+	position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+ 	display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.registrationForm:target{
+
+
+}
+
+.registrationForm--content{
+/*    padding: 25px;*/
+	z-index: 100;
+	border: 1px solid #000000;
+    background: #C4C4C4;;
+    border-radius: 14px;
+    width: 540px;
+}
+
+.close--registrationForm svg{
+  display: block;
+  margin-right: auto;
+
+  margin-top: 9px;
+  margin-left: 11px;
+}
+
+.registrationForm--header{
+	font-size: 40px;
+
+	margin-top: -15px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form--register{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.underline{
+	margin-left: auto;
+	margin-right: auto;
+
+	margin-bottom: 28px;
+	height: 1px;
+	width: 350px;
+	background: black;
+}
+
+form > div{
+	
+}
+
+.form--register > input{
+	width: 74%;
+	margin-bottom: 20px;
+
+	height: 39px;
+	font-size: 20px;
+	padding-left: 17px;
+
+
+	background: #FFFFFF;
+	border: 0px;
+	border-radius: 5px;
+}
+
+.checkbox{
+	width: 16px;
+	height: 16px;
+
+	margin-top: 3px;
+	margin-bottom: 10px;
+
+	border-radius: 5px;
+	background: black;
+	color: black;
+}
+
+.zareg{
+
+	font-size: 20px;
+	background: black;
+	margin-bottom: 20px;
+	border: 0px;
+}
+
+.error{
+	color: red;
+}
